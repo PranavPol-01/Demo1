@@ -48,16 +48,17 @@ int main() {
      break;
      case 2://insert
      
-     printf("\n The options are \n ");
+     printf("\n The options to insert are \n ");
         printf("1.At beginning \n");
         printf("2.At end \n");
-        printf("3.in between \n");
+        printf("3.In between \n");
         printf("Enter the choise of to perform \n");
         scanf("%d",&ch_i);
           switch(ch_i){
             case 1 ://At beginning
             tmp= (struct node *)malloc(sizeof (struct node ));
-        
+             printf("Enter the value of val \n");
+            scanf("%d",&val);
             tmp->info=val;
             tmp->nxt=p;
             p=tmp;
@@ -71,7 +72,7 @@ int main() {
             q->nxt=tmp;
             q=tmp;
             break;
-          case 3://in between
+            case 3://in between
             tmp= (struct node * )malloc(sizeof (struct node ));
             printf("Enter the value of val \n");
             scanf("%d",&val);
@@ -89,7 +90,7 @@ int main() {
           }
      break;
      case 3://Delete
-      printf("\n The options are \n ");
+      printf("\n The options to delete are \n ");
         printf("1.At beginning \n");
         printf("2.In between \n");
         printf("3.At end \n");
@@ -97,19 +98,16 @@ int main() {
         scanf("%d",&ch_d);
     switch(ch_d){
         
-    case 1://At beginning
-    printf("Enter the value of val to be deleted \n");
-            scanf("%d",&val);
-   if(p->info==val){ 
-       r=p;
-    p=p->nxt;
-    free(r);
-   }
-    break;
-    case 2://in middle
-    printf("Enter the value of val to be deleted \n");
-            scanf("%d",&val);
-    if(p->info != val &&q->info!=val){
+        case 1://At beginning
+         r=p;
+         p=p->nxt;
+        free(r);
+        
+        break;
+        case 2://in middle
+        printf("Enter the value of val to be deleted \n");
+        scanf("%d",&val);
+        if(p->info != val &&q->info!=val){
         r=p;
         while(r->nxt->info!=val){
             r=r->nxt;
@@ -117,13 +115,10 @@ int main() {
         s=r->nxt;
         r->nxt=r->nxt->nxt;
         free(s);
-        
-    }
-    break;
-    case 3://At end
-    printf("Enter the value of val to be deleted \n");
-            scanf("%d",&val);
-    if(q->info==val){
+        }
+       break;
+       case 3://At end
+       
         r=p;
         while(r->nxt->nxt != NULL){
             r=r->nxt;
@@ -131,9 +126,9 @@ int main() {
         free(q);
         q=r;
         q->nxt=NULL;
-       }        
-      break;
-      }
+               
+        break;
+     }
      break;
      case 4://display
      r=p;
